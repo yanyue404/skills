@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 本地试跑产物
+docx-template/assets/examples/out.docx
+*_generated.docx
+*.tmp.docx

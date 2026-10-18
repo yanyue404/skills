@@ -1,0 +1,20 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docx-template
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/generate.py assets/templates/weekly_report_template.docx --scan-only
+      - run: python scripts/generate.py assets/templates/weekly_report_template.docx --text-data-file assets/examples/sample_text.json --img-data-file assets/examples/sample_img.json --output /tmp/weekly_report.docx
